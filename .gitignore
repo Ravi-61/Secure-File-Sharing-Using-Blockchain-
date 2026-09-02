@@ -1,0 +1,27 @@
+node_modules/
+
+.env
+.env.*
+!.env.example
+
+dist/
+build/
+
+*.log
+npm-debug.log*
+
+.vscode/
+.idea/
+
+__pycache__/
+*.pyc
+
+artifacts/
+cache/
+coverage/
+
+.DS_Store
+Thumbs.db
+
+# Uploaded files
+backend/uploads/*

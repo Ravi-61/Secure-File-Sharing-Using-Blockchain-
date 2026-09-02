@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: secure_file_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: secure_file_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGO_URI=mongodb://mongodb:27017/securefilesharing
+      - JWT_SECRET=SecureFileSharingJWTKey2026
+      - AES_SECRET_KEY=SecureFileSharing2026@Blockchain#AES256
+    depends_on:
+      - mongodb
+
+volumes:
+  mongo_data:
